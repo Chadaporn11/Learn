@@ -1,0 +1,125 @@
+ ติดตั้ง typescript
+ > npm install -g typescript
+
+ ตรวจสอบ varsion
+ > tsc -v
+
+ สร้างโปรเจกต์ typescript
+ > tsc --init
+
+ tconfig.json
+ 1."target':"es2016" -> เป็นการกำหนด compile Typescript ออกมาเป็น Javascript es2016
+ 2."rootDir":"./" ตน.floder ที่เก็บกลุ่มไฟล์ typescript
+ 3."outDir":"./dist/" ตน.floder ที่เก็บไฟล์ javascript ที่ได้จากการ compile typescript
+ 4."include":" ["src"] กำหนดขอบเขตของไฟล์ที่จะให้ compile
+ -Watch Mode-
+ คำสั้ง compile พร้อมกับ ตรวจสอบไฟล์ ทุกๆไฟล์ที่อยู่ในโปรเจกต์
+ > tsc -w or > tsc --watch
+
+// = start typescript = //
+
+/- ชนิดของข้อมูล -/
+ิboolean -> True,False
+number -> 20, 30.15
+string -> "message"
+
+/- ตัวเเปร -/
+const: ชนิดข้อมูล = ค่าเริ่มต้น (เป็นค่าคงที่ไม่สามารถเปลี่ยนเเปลงค่าได้)
+let: ชนิดข้อมูล = ค่าเริ่มต้น (สามารถเปลี่ยนเเปลงค่าได้)
+
+Ex: let name: string = "som";
+    let age: number = 22;
+    let student: boolean = true;
+
+/- ชนิดของข้อมูลพิเศษ -/
+Any -> การนิยามตัวเเปรที่มีชนิดข้อมูลแบบใดก้ได้
+(กำหนดเมื่อต้องการให้ข้อมูลมีการเปลี่ยนเเปลงค่าได้) 
+But!!=>ข้อควรระวังควรระบุชนิดข้อมูลให้เรียบร้อย เพราะอาจทำให้เกิดข้องผิดพลาดได้
+
+ex: let myVar:any = "som"; //เป็น string
+        myVar= 10; //เป็น number
+
+
+Unknown -> คล้าย any แต่เป็นการนิยามตัวแปรที่มีชนิดข้อมูลแบบใดก็ได้ แต่จะมีการตรวจสอบชนิดข้อมูลก่อนเริ่มทำงาน
+
+ex: let myVar:unknown = "som"; //เป็น string
+
+if(typeof myVar == "string"){
+    //กระบวนการทำงาน
+}
+
+/- Type Assertion -/
+คือ การระบุชนิดข้อมูลด้วยตนเอง สามารถระบุได้ 2 แบบ
+1. as
+2. <ชนิดของข้อมูล>
+
+/- if else -/
+คล้าย javascript 
+
+แบบ Ternary Operator
+ตัวแปร= เงื่อนไข ? คำสั่งเมื่อเป็นจริง : คำสั่งเมื่อเป็นเท็จ;
+
+/- switch case -/
+คล้าย javascript 
+
+/- for loop-/
+คล้าย javascript 
+
+/- function -/
+คล้าย javascript เเต่ต้องระบุชนิดข้อมูล
+รูปแบบ
+1.func ที่ไม่มีการรับและส่งค่า
+2.func ที่มีการรับค่า
+3.func ที่มีการส่งค่า
+4.func ที่มีการรับและส่งค่า(Paramemter&Return)
+ พิเศษ
+
+ 5.allow func
+
+ /- Object -/
+ตัวแปรที่เก็บค่าได้หลายค่า 
+property: value()
+
+ex.
+#1
+const person={
+    name:"som",
+    age:20
+}
+#2
+const position: {x:number,y:number} = {x:10,y:20}
+
+/- Excess Properties Check -/
+การตรวจสอบ properties ที่ส่งเข้ามาทำงานในฟังก์ชั่น
+
+ex. 
+#แบบเก่า
+ชื่อfunc(parameter object) //ไม่มีการตวจสอบ
+#เปลี่ยน
+ชื่อfunc({parameter object})
+
+/- Type Aliases -/
+การสร้างนิยามชนิดข้อมูลในแบบของเรา
+ex.
+
+type Employee = {
+    name:string,
+    salary:number
+}
+
+let emp1: Employee = {name:'som',salary:50000}
+emp1.name = 'mind';
+emp1.salary = 30000
+
+/- Type Aliases (Optional properties) -/
+สามารถกำหนดค่าหรือไม่กำหนดค่าก็ได้ดดยใช้ ?
+
+/- Type Aliases (Readonly Modifier)-/
+เป็นการระบุค่า property หลังจากกำหนดค่าแล้วไม่สามารถเเก้ไขได้ภายหลัง
+#
+type ชื่อ ={
+    readonly property: type,
+}
+
+/- Array -/
+
