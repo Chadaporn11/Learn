@@ -59,6 +59,39 @@ function randomPosition():{lat:number,long:number}{
 }
 console.log(randomPosition());*/
 
+//func overloading
+//#1
+/*function sayHi():string
+function sayHi(name:string):string
+function sayHi(name?:unknown):unknown{
+    if(!name){
+        return 'Hello 1'
+    }
+    if(typeof name == 'string'){
+        return 'Hello '+name
+    }
+    throw new Error('Type error')
+}
+console.log(sayHi())
+console.log(sayHi('som'))*/
+//#2
+function total(a:number,b:number):number
+function total(a:string,b:string):string
+function total(a:unknown,b:unknown):unknown{
+    if(typeof a == 'number' && typeof b == 'number'){
+        return a+b
+    }
+    if(typeof a == 'string' && typeof b == 'string'){
+        return parseInt(a)+parseInt(b)
+    }
+    throw new Error('Type error')
+}
+
+console.log(total(10,20))
+console.log(total('50','60'))
+
+
+
 
 
 

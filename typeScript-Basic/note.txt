@@ -122,4 +122,79 @@ type ชื่อ ={
 }
 
 /- Array -/
+#1
+const users:string[]=[];
+#2
+const users:string[]=['som','mind'];
+
+การเข้าถึงสมาชิกใน Array
+1.อ้างอิงผ่าน index
+2. ใช้ forloop ร่วมกับ lengt
+3. ใช้ forEach
+
+/- Function Overloading -/
+การสร้าง func ที่ชื่อเหมือนกันเเต่รับ parameter ต่างกัน
+
+ex.
+1. function sayHi():string
+2. function sayHi(name:string):string
+3. function sayHi(name?;unknown):unknown
+
+/- Spread Operator -/
+เป็นรูปแบบการกระจายสมาชิกใน array ออกมาใช้งาน
+โดยเติมเครื่องหมาย ... ด้านหน้าตัวเเปร array
+
+/-Rest Parameter-/
+ใช้ในการส่ง parameter(array) เข้าไปทำงานใน func 
+โดยไม่จำกัด จน. โดยใช้เครื่องหมาย ...
+
+/- Destructuring -/
+เหมือนjava
+คือ การกำหนดค่าที่อยู่ใน array หรือ object ให้กับตัวเเปร
+โดยใช้วิธีการจับคู่ตัวเเปรกับค่าใน array หรือ object 
+
+//array
+ex.
+const colors= ['white','red']
+const a = colors[0]
+const b = colors[1]
+
+//ใช้งาน
+const colors:string[]= ['white','red','blue]
+const[a,b,c]=colors
+
+//object
+ex.
+const person={ name:'som', age:22,address:'Angthong'}
+
+const {name,age,address} = person
+
+/- Tuple -/
+1. ชุดของตัวแปรที่อยู่ในรูปของลำดับใช้เก็บค่าข้อมูลให้อยู่ในกลุ่มเดียวกัน
+2. เป็นตัวแปรที่ใช้ในการเก็บข้อมูลที่มีลำดับที่ต่อเนื่อง ซึ่งข้อมูลมีค่าได้หลายค่า
+โดยใช้ชื่ออ้างอิงได้เพียงชื่อเดียว และใช้หมายเลขกำกับ(index)ให้กับตัวแปร
+เพื่อจำแนกความเเตกต่างของค่าตัวแปรเเต่ละตัว
+
+//คุณสมบัติ
+1.ใช้เก็บกลุ่มของข้อมูล
+2.ข้อมูลที่อยู่ใน tuple จะเรียกว่าสมาชิก หรือ อิลิเมนต์
+3.เเต่ละอิลิเมนต์(element) จะเก็บค่าข้อมูล(value) และ อินเด็กซ์(index)
+4.index หมายถึงคีย์ที่มช้อ้างอิงตำเเหน่ง element
+5.สมาชิกใน tuple มีชนิดเหมือนหรือต่างกันก็ได้
+6.สมาชิกใน tuple จะถูกคั่นด้วยคอมม่า
+
+คล้าย array ต่างที่ 
+#array
+-ขนาดมีความยืดหยุ่น (Dynamic size)
+-สมาชิกใน array ต้องมีชิดข้อมูลเหมือนกัน
+
+#tuple
+-ขนาดตายตัว (Fixed size)
+-สมาชิกใน tuple มีชิดข้อมูลต่างกันได้
+
+ex.
+const status:[number,string] = [200,'ok']
+
+//Tuple label
+const status:[code:number,status:string] = [200,'ok']
 
